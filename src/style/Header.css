@@ -1,0 +1,17 @@
+header {
+  display: flexbox;
+  background-color: burlywood;
+  margin-bottom: 5px;
+  /* width: 100vw; */
+}
+
+#logo {
+  justify-content: start;
+  font-weight: 700;
+  font-size: 18px;
+}
+
+#right-size {
+  float: right;
+  justify-content: end;
+}
