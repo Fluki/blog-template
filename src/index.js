@@ -1,12 +1,14 @@
-import { Routes, Route } from "react-router-dom";
-import { BrowserRouter } from "react-router-dom";
+//TODO srediti import da vuce iz jednog fajla 
+import { Routes, Route, BrowserRouter } from 'react-router-dom';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Posts from './components/Posts';
-import Home from './components/Home';
-import Header from './components/Header'
-import SinglePostPage from "./components/SinglePostPage";
-import Create from "./components/Create.js";
+import Home from './pages/Home';
+import Header from './components/Header';
+import SinglePostPage from './pages/SinglePostPage';
+import Create from './pages/Create.js';
+import DeletePage from './pages/DeletePage';
+import UpdatePage from './pages/UpdatePage.js';
 
 ReactDOM.render(
   <React.StrictMode>
@@ -17,7 +19,9 @@ ReactDOM.render(
         <Route exact path="/blogs" element={<Posts />} />
         <Route path="/blogs/:id" element={<SinglePostPage />} />
         <Route path="/blogs/create" element={<Create />} />
-    </Routes>
+        <Route path="/admin/delete" element={<DeletePage />} />
+        <Route path="/admin/update/:id" element={<UpdatePage />} />
+      </Routes>
     </BrowserRouter>
   </React.StrictMode>,
   document.getElementById('root')

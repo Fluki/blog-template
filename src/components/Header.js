@@ -1,9 +1,9 @@
-import '../style/Header.css'
+import '../style/Header.css';
 
 function Header() {
   return (
     <header>
-      <p id={"logo"}>Logo</p>
+      <p id={'logo'}>Logo</p>
       <span id={'right-side'}>
         <a href="/">Home</a>
         <a href="">About</a>
