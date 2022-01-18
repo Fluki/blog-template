@@ -1,6 +1,7 @@
 import Post from './Post';
 import '../style/Posts.css';
 import React, { Component } from 'react';
+import { BACKEND_URL } from '../constants.js';
 
 class Posts extends Component {
   constructor() {
@@ -11,7 +12,8 @@ class Posts extends Component {
   }
 
   componentDidMount() {
-    fetch('http://localhost:5000/').then((response) => {
+    fetch(`${BACKEND_URL}`).then((response) => {
+      console.log(response);
       response.json().then((data) => {
         this.setState({
           isLoaded: true,

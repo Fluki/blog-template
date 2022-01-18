@@ -1,55 +1,56 @@
 //TODO refesh nakon delete
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 
-class DeletePage extends Component{
-  
-  constructor(){
+import { BACKEND_URL } from '../constants.js';
+
+class DeletePage extends Component {
+  constructor() {
     super();
     this.state = {
       loaded: false,
-      deleted: false
-    }
+      deleted: false,
+    };
   }
 
-  componentDidMount(){
-    fetch("http://localhost:5000")
-    .then(response => response.json()
-    .then(data => this.setState(
-      {
-        loaded: true,
-        posts: data
-      }
-    ))
-    ) 
+  componentDidMount() {
+    fetch(`${BACKEND_URL}`).then((response) =>
+      response.json().then((data) =>
+        this.setState({
+          loaded: true,
+          posts: data,
+        })
+      )
+    );
   }
 
   onDeleteClick(id) {
-    fetch(`http://localhost:5000/delete/${id}`).then((response) => {
+    fetch(`${BACKEND_URL}/delete/${id}`).then((response) => {
       this.setState({ deleted: true }, () => {
         console.log(this.state);
       });
     });
   }
 
-  render(){
-    if(this.state.loaded === false){
-      return <h1>Component is loading</h1>
-    }
-    else{
-      return <div> 
-        {this.state.posts.map(post=>{
-            return(
+  render() {
+    if (this.state.loaded === false) {
+      return <h1>Component is loading</h1>;
+    } else {
+      return (
+        <div>
+          {this.state.posts.map((post) => {
+            return (
               <div>
                 <h1>{post.title}</h1>
-                <button onClick={()=>this.onDeleteClick(post.id)}>Delte Post</button>
+                <button onClick={() => this.onDeleteClick(post.id)}>
+                  Delte Post
+                </button>
               </div>
-            )
-          }
-        )}
-      </div>
+            );
+          })}
+        </div>
+      );
     }
   }
-
 }
 
 export default DeletePage;

@@ -105,7 +105,7 @@ app.post(`/update/:id`, (req, res) => {
 // Post data
 app.post(`/`, (req, res) => {
   const post = req.body;
-  const insertQuery = `INSERT INTO blogs (title,description,image) VALUES ('${post.title}','${post.description}','${post.image}');`;
+  const insertQuery = `INSERT INTO blogs (title,description,image) VALUES ('${post.title}','${post.description}','${post.image}');`;T
   const id = req.params.id;
 
   console.log(post, id);
@@ -118,6 +118,7 @@ app.post(`/`, (req, res) => {
   });
   res.status(201).send('Post recieved');
 });
+
 
 // Delete
 app.get(`/delete/:id`, (req, res) => {

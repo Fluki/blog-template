@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { BACKEND_URL } from '../constants.js';
 
 class Create extends Component {
   constructor(props) {
@@ -24,7 +25,7 @@ class Create extends Component {
   }
 
   handleSubmit(event) {
-    fetch('http://localhost:5000/', {
+    fetch(`${BACKEND_URL}`, {
       headers: {
         Accept: 'application/json',
         'Content-Type': 'application/json',

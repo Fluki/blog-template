@@ -1,4 +1,5 @@
 import { Component } from 'react';
+import { BACKEND_URL } from '../constants.js';
 
 class SinglePost extends Component {
   constructor() {
@@ -12,7 +13,7 @@ class SinglePost extends Component {
   }
 
   componentDidMount() {
-    fetch(`http://localhost:5000/blogs/${this.props.id}`)
+    fetch(`${BACKEND_URL}/blogs/${this.props.id}`)
       .then((response) => {
         response.json().then((data) => {
           // vraca niz sa jedim elementom

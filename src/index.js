@@ -1,4 +1,4 @@
-//TODO srediti import da vuce iz jednog fajla 
+//TODO srediti import da vuce iz jednog fajla
 import { Routes, Route, BrowserRouter } from 'react-router-dom';
 import React from 'react';
 import ReactDOM from 'react-dom';
